@@ -181,9 +181,9 @@ class MuhurtamCalculator:
 
         return {
             'tithi_number': tithi_num,
-            'tithi_name': {'en': TITHIS[tithi_num - 1]['en'], 'te': TITHIS[tithi_num - 1]['te']},
+            'tithi_name': {'en': TITHIS[tithi_num - 1]['en'], 'ta': TITHIS[tithi_num - 1]['te']},
             'tithi_end': tithi_end_time if tithi_end_time else "23:59",
-            'paksha': {'en': f"{paksha} Paksha", 'te': f"{paksha} పక్షం"}
+            'paksha': {'en': f"{paksha} Paksha", 'ta': f"{paksha} பக்ஷம்"}
         }
 
     def _calculate_nakshatra(self, jd: float, timezone) -> Dict:
@@ -215,7 +215,7 @@ class MuhurtamCalculator:
 
         return {
             'nakshatra_number': nakshatra_num,
-            'nakshatra_name': {'en': NAKSHATRAS[nakshatra_num - 1]['en'], 'te': NAKSHATRAS[nakshatra_num - 1]['te']},
+            'nakshatra_name': {'en': NAKSHATRAS[nakshatra_num - 1]['en'], 'ta': NAKSHATRAS[nakshatra_num - 1]['te']},
             'nakshatra_end': nakshatra_end_time if nakshatra_end_time else "23:59"
         }
 
@@ -244,6 +244,6 @@ class MuhurtamCalculator:
             masa_num = masa_num - 12
 
         return {
-            'masa': {'en': MASAS[masa_num - 1]['en'], 'te': MASAS[masa_num - 1]['te']},
-            'paksha': {'en': f"{paksha} Paksha", 'te': f"{paksha} పక్షం"}
+            'masa': {'en': MASAS[masa_num - 1]['en'], 'ta': MASAS[masa_num - 1]['te']},
+            'paksha': {'en': f"{paksha} Paksha", 'ta': f"{paksha} பக்ஷம்"}
         }
