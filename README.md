@@ -2,19 +2,39 @@
 
 A comprehensive REST API for Tamil Panchangam (Hindu Calendar) data across multiple locations worldwide and multiple years.
 
+## Tamil Solar Calendar System
+
+This API implements the **traditional Tamil Solar Calendar (Saura Masam)**, where:
+
+- **Months are SOLAR-based**: Each month begins when the Sun enters a new Rashi (zodiac sign) - called Sankranti
+- **Month start is astronomically precise**: Not based on lunar phases
+- **12 Tamil Months aligned with zodiac**:
+  - சித்திரை (Chithirai) - Sun in Mesha (Aries) - April 14-May 14
+  - வைகாசி (Vaikasi) - Sun in Vrishabha (Taurus) - May 15-June 14
+  - ஆனி (Aani) - Sun in Mithuna (Gemini) - June 15-July 16
+  - And so on...
+
+- **Lunar elements** (Tithi, Nakshatra, Paksha) are calculated for religious/astrological purposes but do NOT determine the calendar structure
+
+### Key Difference from Telugu Calendar
+- **Tamil Calendar**: Solar months (month = Sun's Rashi)
+- **Telugu Calendar**: Lunisolar months (month based on Moon phases)
+- **Both use**: Same sidereal astronomical calculations (Lahiri Ayanamsa)
+
 ## Features
 
-- **Accurate Astronomical Calculations**: Uses Swiss Ephemeris for precise calculations
-- **Multiple Locations**: Supports 18 locations across India, USA, Canada, UK, Australia, New Zealand, South Africa, UAE, Saudi Arabia, Singapore, and Malaysia
+- **Accurate Astronomical Calculations**: Uses Swiss Ephemeris with Lahiri Ayanamsa for sidereal calculations
+- **Multiple Locations**: Supports 18+ locations across India, USA, Canada, UK, Australia, New Zealand, South Africa, UAE, Saudi Arabia, Singapore, and Malaysia
 - **Multiple Years**: Pre-configured for 2025, 2026, and 2027
 - **Complete Panchangam Data**: Includes all traditional elements:
-  - Tithi (Lunar day)
-  - Nakshatra (Lunar mansion)
+  - **Masa (Month)**: Tamil solar month based on Sun's Rashi
+  - Tithi (Lunar day) - for religious timings
+  - Nakshatra (Lunar constellation)
   - Yoga
   - Karana
-  - Masa (Month) and Paksha (Fortnight)
+  - Paksha (Fortnight - Shukla/Krishna)
   - Samvatsara (60-year cycle year)
-  - Ayana (Solstice period)
+  - Ayana (Solstice period - Uttarayana/Dakshinayana)
   - Ruthu (Season)
   - Rashi (Zodiac signs for Sun and Moon)
   - Sunrise, Sunset, Moonrise, Moonset

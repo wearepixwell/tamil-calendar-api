@@ -238,12 +238,12 @@ class MuhurtamCalculator:
         from config import MASAS
         rashi_num = int(sun_pos / 30) + 1
 
-        # Map rashi to masa (approximate)
-        masa_num = rashi_num
-        if masa_num > 12:
-            masa_num = masa_num - 12
+        # Tamil Solar Month: Sun's Rashi directly maps to Tamil month
+        # Rashi 1 (Mesha/Aries) = Chithirai (index 0)
+        # So rashi_num - 1 = masa_index
+        masa_index = (rashi_num - 1) % 12
 
         return {
-            'masa': {'en': MASAS[masa_num - 1]['en'], 'ta': MASAS[masa_num - 1]['ta']},
+            'masa': {'en': MASAS[masa_index]['en'], 'ta': MASAS[masa_index]['ta']},
             'paksha': {'en': f"{paksha} Paksha", 'ta': f"{paksha} பக்ஷம்"}
         }

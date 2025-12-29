@@ -217,23 +217,63 @@ class PanchangamCalculator:
         }
 
     def _calculate_masa_paksha(self, jd: float) -> Dict:
-        """Calculate Masa (month) and Paksha"""
+        """
+        Calculate Tamil Solar Masa and Paksha
+
+        Tamil months are SOLAR months (Saura Masam), not lunar.
+        Each month begins when Sun enters a new Rashi (zodiac sign):
+        - Chithirai begins at Mesha Sankranti (Sun enters Aries) ~ April 14
+        - Each subsequent month when Sun transits to next Rashi
+
+        Paksha (fortnight) is still based on lunar calculation for religious purposes.
+        """
         # Use sidereal (Lahiri) positions
         sun_pos = swe.calc_ut(jd, swe.SUN, swe.FLG_SIDEREAL)[0][0]
         moon_pos = swe.calc_ut(jd, swe.MOON, swe.FLG_SIDEREAL)[0][0]
 
-        # Masa is based on Sun's position in zodiac
-        masa_num = int(sun_pos / 30)
+        # Calculate which Rashi (zodiac sign) the Sun is in
+        # Each Rashi spans 30 degrees
+        sun_rashi_num = int(sun_pos / 30) % 12
 
-        # Paksha based on tithi
+        # Tamil solar month directly corresponds to Sun's Rashi
+        # Rashi 0 (Mesha/Aries) = Chithirai (index 0 in MASAS)
+        # This is already aligned correctly in our MASAS array
+        tamil_masa_num = sun_rashi_num
+
+        # Paksha based on tithi (lunar phase) - used for religious timings
         elongation = (moon_pos - sun_pos) % 360
         tithi_num = int(elongation / 12)
         paksha = "Shukla Paksha" if tithi_num < 15 else "Krishna Paksha"
 
         return {
-            "masa": MASAS[masa_num % 12],
+            "masa": MASAS[tamil_masa_num],
             "paksha": {"en": paksha, "ta": "சுக்ல பக்ஷம்" if tithi_num < 15 else "கிருஷ்ண பக்ஷம்"}
         }
+
+    def _calculate_sankranti(self, jd: float, timezone) -> Dict:
+        """
+        Calculate the next Sankranti (Sun's transit to next Rashi)
+
+        Sankranti marks the beginning of a new Tamil solar month.
+        This calculation finds when Sun enters the next zodiac sign.
+        """
+        sun_pos = swe.calc_ut(jd, swe.SUN, swe.FLG_SIDEREAL)[0][0]
+        current_rashi = int(sun_pos / 30)
+        next_rashi = (current_rashi + 1) % 12
+        target_degree = next_rashi * 30
+
+        # Find when Sun will reach the next Rashi boundary
+        # Search forward up to 32 days (max time for Sun in one Rashi)
+        sankranti_jd = self._find_transition(jd, jd + 32, swe.SUN, None, target_degree)
+
+        if sankranti_jd:
+            sankranti_time = self._jd_to_datetime(sankranti_jd, timezone)
+            next_masa = MASAS[next_rashi]
+            return {
+                "next_sankranti_time": sankranti_time.strftime("%Y-%m-%d %H:%M"),
+                "next_masa": next_masa
+            }
+        return None
 
     def _calculate_samvatsara(self, jd: float) -> Dict:
         """Calculate Samvatsara (60-year cycle)"""

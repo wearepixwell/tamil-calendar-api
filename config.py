@@ -266,19 +266,21 @@ KARANAS = [
 ]
 
 # Masa names (12 months)
+# Tamil Solar Months (Saura Masam) - Based on Sun's transit through zodiac signs
+# Month starts when Sun enters the corresponding Rashi (zodiac sign)
 MASAS = [
-    {"en": "Chaitra", "ta": "சித்திரை"},
-    {"en": "Vaishakha", "ta": "வைகாசி"},
-    {"en": "Jyeshtha", "ta": "ஆனி"},
-    {"en": "Ashadha", "ta": "ஆடி"},
-    {"en": "Shravana", "ta": "ஆவணி"},
-    {"en": "Bhadrapada", "ta": "புரட்டாசி"},
-    {"en": "Ashwayuja", "ta": "ஐப்பசி"},
-    {"en": "Kartika", "ta": "கார்த்திகை"},
-    {"en": "Margashira", "ta": "மார்கழி"},
-    {"en": "Pushya", "ta": "தை"},
-    {"en": "Magha", "ta": "மாசி"},
-    {"en": "Phalguna", "ta": "பங்குனி"}
+    {"en": "Chithirai", "ta": "சித்திரை", "rashi": "Mesha", "rashi_num": 0},      # Aries (Apr 14 - May 14)
+    {"en": "Vaikasi", "ta": "வைகாசி", "rashi": "Vrishabha", "rashi_num": 1},       # Taurus (May 15 - Jun 14)
+    {"en": "Aani", "ta": "ஆனி", "rashi": "Mithuna", "rashi_num": 2},                # Gemini (Jun 15 - Jul 16)
+    {"en": "Aadi", "ta": "ஆடி", "rashi": "Kataka", "rashi_num": 3},                 # Cancer (Jul 17 - Aug 16)
+    {"en": "Aavani", "ta": "ஆவணி", "rashi": "Simha", "rashi_num": 4},               # Leo (Aug 17 - Sep 16)
+    {"en": "Purattasi", "ta": "புரட்டாசி", "rashi": "Kanya", "rashi_num": 5},      # Virgo (Sep 17 - Oct 17)
+    {"en": "Aippasi", "ta": "ஐப்பசி", "rashi": "Tula", "rashi_num": 6},            # Libra (Oct 18 - Nov 16)
+    {"en": "Karthigai", "ta": "கார்த்திகை", "rashi": "Vrischika", "rashi_num": 7}, # Scorpio (Nov 17 - Dec 16)
+    {"en": "Margazhi", "ta": "மார்கழி", "rashi": "Dhanus", "rashi_num": 8},        # Sagittarius (Dec 17 - Jan 14)
+    {"en": "Thai", "ta": "தை", "rashi": "Makara", "rashi_num": 9},                  # Capricorn (Jan 15 - Feb 13)
+    {"en": "Maasi", "ta": "மாசி", "rashi": "Kumbha", "rashi_num": 10},              # Aquarius (Feb 14 - Mar 14)
+    {"en": "Panguni", "ta": "பங்குனி", "rashi": "Meena", "rashi_num": 11}          # Pisces (Mar 15 - Apr 13)
 ]
 
 # Rashi (zodiac) names
