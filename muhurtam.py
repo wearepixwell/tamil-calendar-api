@@ -181,7 +181,7 @@ class MuhurtamCalculator:
 
         return {
             'tithi_number': tithi_num,
-            'tithi_name': {'en': TITHIS[tithi_num - 1]['en'], 'ta': TITHIS[tithi_num - 1]['te']},
+            'tithi_name': {'en': TITHIS[tithi_num - 1]['en'], 'ta': TITHIS[tithi_num - 1]['ta']},
             'tithi_end': tithi_end_time if tithi_end_time else "23:59",
             'paksha': {'en': f"{paksha} Paksha", 'ta': f"{paksha} பக்ஷம்"}
         }
@@ -215,7 +215,7 @@ class MuhurtamCalculator:
 
         return {
             'nakshatra_number': nakshatra_num,
-            'nakshatra_name': {'en': NAKSHATRAS[nakshatra_num - 1]['en'], 'ta': NAKSHATRAS[nakshatra_num - 1]['te']},
+            'nakshatra_name': {'en': NAKSHATRAS[nakshatra_num - 1]['en'], 'ta': NAKSHATRAS[nakshatra_num - 1]['ta']},
             'nakshatra_end': nakshatra_end_time if nakshatra_end_time else "23:59"
         }
 
@@ -244,6 +244,6 @@ class MuhurtamCalculator:
             masa_num = masa_num - 12
 
         return {
-            'masa': {'en': MASAS[masa_num - 1]['en'], 'ta': MASAS[masa_num - 1]['te']},
+            'masa': {'en': MASAS[masa_num - 1]['en'], 'ta': MASAS[masa_num - 1]['ta']},
             'paksha': {'en': f"{paksha} Paksha", 'ta': f"{paksha} பக்ஷம்"}
         }
