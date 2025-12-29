@@ -144,7 +144,7 @@ class PanchangamCalculator:
         return {
             "tithi_name": TITHIS[tithi_num],
             "tithi_end": self._jd_to_time_str(tithi_end_jd, timezone) if tithi_end_jd else None,
-            "paksha": {"en": paksha, "ta": "శుక్ల పక్షం" if tithi_num < 15 else "కృష్ణ పక్షం"}
+            "paksha": {"en": paksha, "ta": "சுக்ல பக்ஷம்" if tithi_num < 15 else "கிருஷ்ண பக்ஷம்"}
         }
 
     def _calculate_nakshatra(self, jd: float, timezone) -> Dict:
@@ -232,7 +232,7 @@ class PanchangamCalculator:
 
         return {
             "masa": MASAS[masa_num % 12],
-            "paksha": {"en": paksha, "ta": "శుక్ల పక్షం" if tithi_num < 15 else "కృష్ణ పక్షం"}
+            "paksha": {"en": paksha, "ta": "சுக்ல பக்ஷம்" if tithi_num < 15 else "கிருஷ்ண பக்ஷம்"}
         }
 
     def _calculate_samvatsara(self, jd: float) -> Dict:
